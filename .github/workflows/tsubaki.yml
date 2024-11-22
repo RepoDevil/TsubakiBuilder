@@ -8,7 +8,7 @@ on:
         required: true
         default: false
 
-permissions: 
+permissions:
   actions: write
   contents: write
 
@@ -206,7 +206,7 @@ jobs:
         if [ ${#commit_messages} -gt $max_length ]; then
           commit_messages="${commit_messages:0:$max_length}... (truncated)"
         fi
-        contentbody=$( jq -nc --arg msg "Himitsu Shirase **${{ env.GIT_HASH }}**" --arg commits "$commit_messages" '{"content": ($msg + "\n" + $commits)}' )
+        contentbody=$( jq -nc --arg msg "[Himitsu Shirase **${{ env.GIT_HASH }}**](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk)" --arg commits "$commit_messages" '{"content": ($msg + "\n" + $commits)}' )
         curl -F "payload_json=${contentbody}" ${{ secrets.DISCORD_WEBHOOK }}
       env:
         COMMIT_LOG: ${{ env.COMMIT_LOG }}
