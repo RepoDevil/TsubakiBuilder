@@ -206,23 +206,17 @@ jobs:
         if [ ${#commit_messages} -gt $max_length ]; then
           commit_messages="${commit_messages:0:$max_length}... (truncated)"
         fi
-        contentbody=$( jq -nc --arg msg "[Himitsu Shirase **${{ env.GIT_HASH }}**](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk)" --arg commits "$commit_messages" '{"content": ($msg + "\n" + $commits)}' )
+        contentbody=$( jq -nc --arg msg "[Himitsu Shirase **${{ env.GIT_HASH }}**](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk)
+
+        [Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk)
+        [Himitsu-${{ env.GIT_HASH }}-google-arm64-v8a-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-arm64-v8a-matagi.apk)
+        [Himitsu-${{ env.GIT_HASH }}-google-armeabi-v7a-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-armeabi-v7a-matagi.apk)
+        [Himitsu-${{ env.GIT_HASH }}-google-x86_64-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-x86_64-matagi.apk)
+        [Himitsu-${{ env.GIT_HASH }}-google-x86-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-x86-matagi.apk)" --arg commits "$commit_messages" '{"content": ($msg + "\n" + $commits)}' )
         curl -F "payload_json=${contentbody}" ${{ secrets.DISCORD_WEBHOOK }}
       env:
         COMMIT_LOG: ${{ env.COMMIT_LOG }}
         VERSION: ${{ env.VERSION }}
-
-    - name: Upload packages to Discord
-      if: ${{ github.event.inputs.Experimental }} == false
-      uses: sinshutu/upload-to-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      with:
-        args: |
-          app/build/outputs/apk/google/matagi/Himitsu-${{ env.GIT_HASH }}-google-arm64-v8a-matagi.apk
-          app/build/outputs/apk/google/matagi/Himitsu-${{ env.GIT_HASH }}-google-armeabi-v7a-matagi.apk
-          app/build/outputs/apk/google/matagi/Himitsu-${{ env.GIT_HASH }}-google-x86_64-matagi.apk
-          app/build/outputs/apk/google/matagi/Himitsu-${{ env.GIT_HASH }}-google-x86-matagi.apk
 
   dry:
     needs: wash
