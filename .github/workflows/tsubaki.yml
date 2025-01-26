@@ -200,7 +200,7 @@ jobs:
       if: ${{ github.event.inputs.Experimental }} == false
       shell: bash
       run: |
-        contentbody=$( jq -nc --arg msg "[Himitsu Shirase **${{ env.GIT_HASH }}**](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-universal-matagi.apk)
+        contentbody=$( jq -nc --arg msg "[Himitsu Shirase **${{ env.GIT_HASH }}**](https://github.com/${{ github.repository }}/releases/tag/${{ env.GIT_HASH }})
 
         [Himitsu-${{ env.GIT_HASH }}-google-arm64-v8a-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-arm64-v8a-matagi.apk)
         [Himitsu-${{ env.GIT_HASH }}-google-armeabi-v7a-matagi.apk](https://github.com/${{ github.repository }}/releases/download/${{ env.GIT_HASH }}/Himitsu-${{ env.GIT_HASH }}-google-armeabi-v7a-matagi.apk)

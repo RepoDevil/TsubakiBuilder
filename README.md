@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://github.com/RepoDevil/TsubakiBuilder/releases"><img src="https://img.shields.io/github/downloads/RepoDevil/Himitsu/total?logo=github&style=for-the-badge"></a>
+<a href="https://github.com/RepoDevil/TsubakiBuilder/releases/latest"><img src="https://img.shields.io/github/downloads/RepoDevil/Himitsu/total?logo=github&style=for-the-badge"></a>
 <img src="https://img.shields.io/badge/platforms-android-blueviolet?logo=android&style=for-the-badge"/>
 <img src="https://img.shields.io/codefactor/grade/github/RepoDevil/Himitsu?logo=gitlab&style=for-the-badge"/>
 </p>
