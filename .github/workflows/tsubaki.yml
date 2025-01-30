@@ -240,3 +240,13 @@ jobs:
       with:
         max-age: 86400 # 1 day, default: 7 days since last use
         token: ${{ secrets.GITHUB_TOKEN }}
+
+  rerun-failed-jobs:
+    runs-on: ubuntu-latest
+    needs: [ wash ]
+    if: failure()
+    steps:
+      - name: Rerun failed jobs in current workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run rerun ${{ github.run_id }} --failed
