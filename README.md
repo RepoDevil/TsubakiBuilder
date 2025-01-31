@@ -7,7 +7,7 @@
 <a href="https://discord.gg/vnrhgrt"><img src="https://invidget.switchblade.xyz/vnrhgrt"></a>
 </p>
 <p align="center">
-  <a href="https://gitlab.com/RepoDevil/himitsu"><b><em>Himitsu (秘密; Him-itsu)</em></b> means <em>secret</em> in Japanese. <em>Shhh</em></a>
+  <a href="https://gitlab.com/RepoDevil/himitsu"><b><em>Himitsu (秘密; Hi-mi-tsu)</em></b> means <em>secret</em> in Japanese. <em>Shhh</em></a>
 </p>
 
 <i>
