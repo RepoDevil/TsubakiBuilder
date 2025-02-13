@@ -131,7 +131,7 @@ jobs:
     - uses: burrunan/gradle-cache-action@v2
       name: Build Release Gradle
       with:
-        job-id: Release
+        job-id: ${{ env.GIT_HASH }}
         # Specifies arguments for Gradle execution
         arguments: |
           --configure-on-demand
